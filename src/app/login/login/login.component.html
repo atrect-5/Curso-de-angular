@@ -1,0 +1,36 @@
+<!--Creamos el div principal para poder centrar nuestro contenido y se vea mejor-->
+<div class="center-content">
+
+  <div class="login-div">
+    <p class="titulo">{{titulo}}</p><!--Le ponemos titulo usando interpolacion-->
+
+    <br>
+    <form [formGroup]="userForm" (submit)="login()">
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>User</mat-label>
+        <input matInput type="text" formControlName="user">
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+
+      <br>
+
+      <div *ngIf="(userField?.hasError('required') && userField?.dirty) || (passwordField?.hasError('required') && passwordField?.dirty)">
+        <p class="error">Usuario y contraseña requeridos</p>
+      </div>
+      <div *ngIf="passwordField?.hasError('minlength')">
+        <p class="error">La contraseña debe tener mas de 8 caracteres</p>
+      </div>
+
+      <button mat-flat-button color="fill" type="submit">Login</button>
+    </form>
+  </div>
+
+</div>

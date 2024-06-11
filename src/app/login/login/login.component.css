@@ -1,0 +1,28 @@
+.center-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.titulo{
+  color: white;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.login-div{
+  background-color: rgb(98, 98, 98);
+  padding: 35px;
+  border-radius: 15px;
+}
+
+.error{
+  color: white;
+  background-color: crimson;
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  width: 200px;
+}
