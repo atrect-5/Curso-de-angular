@@ -1,0 +1,97 @@
+<!--Creamos el div principal para poder centrar nuestro contenido y se vea mejor-->
+<div class="center-content">
+
+  <div class="login-div">
+    <p class="titulo">{{titulo}}</p><!--Le ponemos titulo usando interpolacion-->
+
+    <br>
+    <form [formGroup]="userForm" (submit)="registrarse()">
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="nombre">
+      </mat-form-field>
+
+      <div *ngIf="nameField?.hasError('required') && nameField?.dirty">
+        <p class="error">Campo Requerido</p>
+      </div>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" formControlName="apellido">
+      </mat-form-field>
+
+      <div *ngIf="lastNameField?.hasError('required') && lastNameField?.dirty">
+        <p class="error">Campo Requerido</p>
+      </div>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" formControlName="email">
+      </mat-form-field>
+
+      <div *ngIf="emailField?.hasError('required') && emailField?.dirty">
+        <p class="error">Campo Requerido</p>
+      </div>
+
+      <div *ngIf="emailField?.hasError('email') && emailField?.dirty">
+        <p class="error">Formato correo requerido</p>
+      </div>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>User</mat-label>
+        <input matInput type="text" formControlName="user">
+      </mat-form-field>
+
+      <div *ngIf="userField?.hasError('required') && userField?.dirty">
+        <p class="error">Campo Requerido</p>
+      </div>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+
+      <div *ngIf="passwordField?.hasError('required') && passwordField?.dirty">
+        <p class="error">Campo Requerido</p>
+      </div>
+
+      <div *ngIf="passwordField?.hasError('minlength') && passwordField?.dirty">
+        <p class="error">Longitud minima de 8</p>
+      </div>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Confirm password</mat-label>
+        <input matInput type="password" formControlName="confirmpassword">
+      </mat-form-field>
+
+      <div *ngIf="confirmPasswordField?.hasError('required') && confirmPasswordField?.dirty">
+        <p class="error">Campo Requerido</p>
+      </div>
+
+      <div *ngIf="confirmPasswordField?.hasError('minlength') && confirmPasswordField?.dirty">
+        <p class="error">Longitud minima de 8</p>
+      </div>
+
+      <br>
+
+      <button mat-flat-button color="fill" type="submit">Login</button>
+    </form>
+    <br>
+    <p>Ya esta registrado?</p>
+    <p><a [routerLink]="'/login'">Login</a></p>
+
+  </div>
+
+</div>

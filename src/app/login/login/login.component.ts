@@ -2,6 +2,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Component } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class LoginComponent {
   titulo='Iniciar Sesion';
 
   constructor (private formBuilder:FormBuilder,
-              private cookieService: CookieService
+              private cookieService: CookieService,
+              private router:Router
   ){
     // Creamos los campos correspondientes de nuestro formulario
     this.userForm = this.formBuilder.group({
