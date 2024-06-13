@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { group } from 'console';
 
 @Component({
   selector: 'app-registro',
@@ -21,33 +22,37 @@ export class RegistroComponent {
     // Creamos los campos correspondientes de nuestro formulario
     this.userForm = this.formBuilder.group({
       // Agregamos los campos que necesitaremos para nuestro registro
-      nombre:['', [Validators.required]],
-      apellido:['', [Validators.required]],
-      email:['', [Validators.required, Validators.email]],
-      user: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmpassword: ['', [Validators.required, Validators.minLength(8)]]
+      grupo1: this.formBuilder.group({
+        nombre:['', [Validators.required]],
+        apellido:['', [Validators.required]],
+        email:['', [Validators.required, Validators.email]]
+      }),
+      grupo2: this.formBuilder.group({
+        user: ['', [Validators.required]],
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        confirmpassword: ['', [Validators.required, Validators.minLength(8)]]
+      })
     });
   }
 
 
   get userField(){
-    return this.userForm.get('user')
+    return this.userForm.get('grupo2.user')
   }
   get passwordField(){
-    return this.userForm.get('password')
+    return this.userForm.get('grupo2.password')
   }
   get nameField(){
-    return this.userForm.get('nombre')
+    return this.userForm.get('grupo1.nombre')
   }
   get lastNameField(){
-    return this.userForm.get('apellido')
+    return this.userForm.get('grupo1.apellido')
   }
   get emailField(){
-    return this.userForm.get('email')
+    return this.userForm.get('grupo1.email')
   }
   get confirmPasswordField(){
-    return this.userForm.get('confirmpassword')
+    return this.userForm.get('grupo2.confirmpassword')
   }
 
   registrarse(){

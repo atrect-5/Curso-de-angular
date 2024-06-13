@@ -26,3 +26,15 @@
   border-radius: 10px;
   width: 200px;
 }
+
+/*Estas clases son para simular una tabla, ya que presenta ciertos problemas cuando hago una tabla dentro del formulario*/
+.fila {
+  display: flex;
+  justify-content: space-between;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
