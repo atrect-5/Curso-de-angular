@@ -42,6 +42,7 @@ export class LoginComponent {
     // Checamos si nuestro formulario esta debidamente lleno
     if (this.userForm.valid){
       this.cookieService.set('Registro','Se registro')
+      this.router.navigate([''])
     }
     else{
       alert('Debe llenar debidamente los campos')
