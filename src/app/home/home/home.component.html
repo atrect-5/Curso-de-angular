@@ -1,5 +1,35 @@
-<p>home works!</p>
+<h4>Hello, here are some news you may find interesting</h4>
+<hr>
 
-<div>
+<div *ngIf="news"><!--Checa si existe la variable, ya que pertenece a una funcion asincrona-->
+<div *ngFor="let article of news.articles">
 
+
+<table>
+<tbody>
+  <tr>
+<td class="primera-columna">
+
+<h3>Autor: {{article.author}}</h3>
+<strong>{{article.title}}</strong><br><br>
+<p><strong>Descripcion:</strong> {{article.description}}</p>
+
+
+<p>Sitio: {{article.source.name}}</p>
+<p>Fecha: {{ article.publishedAt | date:'dd/MM/yyyy' }}</p>
+
+<p>Url: <a href="{{article.url}}" target="_blank">{{article.url}}</a></p><br>
+
+</td>
+<td>
+
+  <img class="imagen-ajustada" src="{{article.urlToImage}}" alt="Descripción de la imagen">
+
+</td>
+</tr>
+</tbody>
+</table>
+<hr width="500px" align="left"><br>
+
+</div>
 </div>

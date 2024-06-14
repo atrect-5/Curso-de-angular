@@ -1,0 +1,7 @@
+.primera-columna {
+  width: 65%;
+}
+.imagen-ajustada {
+  width: 100%;  /* La imagen ocupará el 100% del ancho de la celda */
+  height: auto;  /* La altura se ajustará automáticamente para mantener las proporciones de la imagen */
+}

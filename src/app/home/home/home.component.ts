@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { ApiService } from '../../core/services/api.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit{
   // Creamos la variable donde obtendremos la respuesta del api
   news:any;
 
-  constructor(private apiService:ApiService){}
+  constructor(private apiService:ApiService, public datePipe: DatePipe){}
 
   // Creamos nuestra funcion asincrona (Ya que esperara una respuesta) que hara la peticion http a nuestra api por medio de nuestro servicio 'api.service'
   async ngOnInit(){
