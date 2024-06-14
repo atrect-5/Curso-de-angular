@@ -26,7 +26,7 @@
         <p class="error">Usuario y contraseña requeridos</p>
       </div>
       <div *ngIf="passwordField?.hasError('minlength')">
-        <p class="error">La contraseña debe tener mas de 8 caracteres</p>
+        <p class="error">Longitud minima de 8</p>
       </div>
 
       <button mat-flat-button color="fill" type="submit">Login</button>

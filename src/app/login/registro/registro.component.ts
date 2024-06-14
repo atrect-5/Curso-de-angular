@@ -1,9 +1,9 @@
 import { CookieService } from 'ngx-cookie-service';
 import { Component } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { group } from 'console';
+
 
 @Component({
   selector: 'app-registro',
@@ -31,6 +31,10 @@ export class RegistroComponent {
         user: ['', [Validators.required]],
         password: ['', [Validators.required, Validators.minLength(8)]],
         confirmpassword: ['', [Validators.required, Validators.minLength(8)]]
+      },{
+        // Se agregan los validadores que crearemos
+        validator: MustMatch('password', 'confirmpassword')
+        // Se confirma si 'password' y 'confirmpassword' son iguales con nuestra funcion
       })
     });
   }
@@ -65,3 +69,22 @@ export class RegistroComponent {
   }}
 
 }
+
+// Esta funcion checa si 'matchingControlName' coincide con 'controlName' y retorna que existe un error en caso de no coincidencia
+function MustMatch(controlName: string, matchingControlName: string) {
+  return (formGroup: FormGroup) => {
+    const control = formGroup.controls[controlName];
+    const matchingControl = formGroup.controls[matchingControlName];
+
+    if (matchingControl.errors && !matchingControl.errors['mustMatch']) {
+      return;
+    }
+
+    if (control.value !== matchingControl.value) {
+      matchingControl.setErrors({ mustMatch: true });
+    } else {
+      matchingControl.setErrors(null);
+    }
+  }
+}
+

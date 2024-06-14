@@ -1,3 +1,4 @@
+/*Centrar el contenido en el centro de la pantalla*/
 .center-content{
   display: flex;
   justify-content: center;
@@ -5,19 +6,19 @@
   height: 100vh;
   text-align: center;
 }
-
+/*Presentacion del titulo del formulario*/
 .titulo{
   color: white;
   font-weight: 800;
   font-size: 20px;
 }
-
+/*Fondo del login*/
 .login-div{
   background-color: rgb(98, 98, 98);
   padding: 35px;
   border-radius: 15px;
 }
-
+/*Mensaje de error*/
 .error{
   color: white;
   background-color: crimson;
@@ -25,6 +26,10 @@
   padding: 5px;
   border-radius: 10px;
   width: 200px;
+}
+/*Espacio entre inputs para evitar descuadres con los errores*/
+.error-container{
+  height: 45px;
 }
 
 /*Estas clases son para simular una tabla, ya que presenta ciertos problemas cuando hago una tabla dentro del formulario*/
@@ -36,5 +41,6 @@
 .columna {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
 }

@@ -15,35 +15,34 @@
         <input matInput type="text" formControlName="nombre">
       </mat-form-field>
 
+      <div class="error-container">
       <div *ngIf="nameField?.hasError('required') && nameField?.dirty">
         <p class="error">Campo Requerido</p>
-      </div>
-
-      <br>
+      </div></div>
 
       <mat-form-field appearance="fill">
         <mat-label>Last Name</mat-label>
         <input matInput type="text" formControlName="apellido">
       </mat-form-field>
 
+      <div class="error-container">
       <div *ngIf="lastNameField?.hasError('required') && lastNameField?.dirty">
         <p class="error">Campo Requerido</p>
-      </div>
-
-      <br>
+      </div></div>
 
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput type="text" formControlName="email">
       </mat-form-field>
 
+      <div class="error-container">
       <div *ngIf="emailField?.hasError('required') && emailField?.dirty">
         <p class="error">Campo Requerido</p>
       </div>
 
       <div *ngIf="emailField?.hasError('email') && emailField?.dirty">
         <p class="error">Formato correo requerido</p>
-      </div>
+      </div></div>
 
     </div>
     <div class="columna" formGroupName="grupo2">
@@ -53,27 +52,26 @@
         <input matInput type="text" formControlName="user">
       </mat-form-field>
 
+      <div class="error-container">
       <div *ngIf="userField?.hasError('required') && userField?.dirty">
         <p class="error">Campo Requerido</p>
-      </div>
-
-      <br>
+      </div></div>
 
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
         <input matInput type="password" formControlName="password">
       </mat-form-field>
 
+      <div class="error-container">
       <div *ngIf="passwordField?.hasError('required') && passwordField?.dirty">
         <p class="error">Campo Requerido</p>
       </div>
 
       <div *ngIf="passwordField?.hasError('minlength') && passwordField?.dirty">
         <p class="error">Longitud minima de 8</p>
-      </div>
+      </div></div>
 
-      <br>
-
+      <div class="error-container">
       <mat-form-field appearance="fill">
         <mat-label>Confirm password</mat-label>
         <input matInput type="password" formControlName="confirmpassword">
@@ -87,7 +85,10 @@
         <p class="error">Longitud minima de 8</p>
       </div>
 
-      <br>
+      <div *ngIf="confirmPasswordField?.hasError('mustMatch')">
+        <p class="error">Deben coincidir</p>
+      </div></div>
+
 
       </div>
     </div>
