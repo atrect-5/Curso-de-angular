@@ -13,6 +13,8 @@ import { DatePipe } from '@angular/common';
 export class HomeComponent implements OnInit{
   // Creamos la variable donde obtendremos la respuesta del api
   news:any;
+  // Determinamos el estado de la progressBar
+  isLoading = true;
 
   constructor(private apiService:ApiService, public datePipe: DatePipe){}
 
@@ -27,6 +29,8 @@ export class HomeComponent implements OnInit{
       // En caso de error, nos aparece el error en consola
       (error)=> console.error(error.error.message)
       );
+
+      this.isLoading = false;
 
       console.log(this.news);
 

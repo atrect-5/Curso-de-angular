@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -25,7 +26,8 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     ReactiveFormsModule,
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatProgressBarModule
   ]
 })
 export class SharedModule { }

@@ -1,6 +1,8 @@
 <h4>Hello, here are some news you may find interesting</h4>
 <hr>
 
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+
 <div *ngIf="news"><!--Checa si existe la variable, ya que pertenece a una funcion asincrona-->
 <div *ngFor="let article of news.articles">
 
